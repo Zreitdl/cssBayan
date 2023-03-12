@@ -1,5 +1,8 @@
+/* desktop */
 body {
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
 }
 
 .container {
@@ -12,7 +15,7 @@ fieldset {
   color: blueviolet;
   border: none;
   outline: none;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 fieldset:hover {
@@ -25,16 +28,18 @@ fieldset:hover {
 }
 
 .memeContainer {
-  width: 800px;
+  width: 100%;
+  max-width: 900px;
   max-height: 0;
   transition: max-height 0.25s ease-out;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .memeContainer > img {
-  width: 100%;
-  max-height: 400px;
-  margin-top: 10px;
+  width: 50%;
+  padding-bottom: 20px;
 }
 
 input {
@@ -43,10 +48,6 @@ input {
   opacity: 0;
   height: 0;
   width: 0;
-}
-
-label {
-  height: 40px;
 }
 
 label h3 {
@@ -66,16 +67,24 @@ label:hover::before {
   content: "close";
 }
 
-input:checked + label .memeContainer, label:hover .memeContainer {
+input:checked + label .memeContainer,
+label:hover .memeContainer {
   transition: max-height 0.25s ease-in;
-  max-height: 500px;
+  max-height: 1000px;
 }
 
-.content {
-}
+/* tablet */
 
-/* @media (min-width: 480px) and (max-width: 980px) {
-  body {
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .memeContainer > img {
+    width: 70%;
   }
-} */
+}
+
+/* mobile */
+
+@media (min-width: 768px) and (max-width: 767px) {
+  .memeContainer > img {
+    width: 100%;
+  }
+}
